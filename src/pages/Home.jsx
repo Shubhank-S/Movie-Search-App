@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import { MovieContext } from "../context/MovieContext";
 
 function Home() {
-  return <div>Home</div>;
+  const data = useContext(MovieContext);
+  return (
+    <>
+      <h1>{data}</h1>
+    </>
+  );
 }
 
 export default Home;

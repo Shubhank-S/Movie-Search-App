@@ -1,10 +1,12 @@
 import React, { createContext } from "react";
 
 export const MovieContext = createContext();
-function MovieProvider() {
+function MovieProvider({ children }) {
   return (
     <>
-      <MovieContext.Provider>{children}</MovieContext.Provider>
+      <MovieContext.Provider value={"Shubhank" + "Sharma"}>
+        {children}
+      </MovieContext.Provider>
     </>
   );
 }
