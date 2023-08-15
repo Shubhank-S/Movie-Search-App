@@ -1,6 +1,8 @@
 import React from "react";
-import Home from "./components/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import SinglePage from "./pages/SinglePage";
+import Error from "./pages/Error";
 
 function App() {
   return (
@@ -8,6 +10,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/movie/:id" element={<SinglePage />} />
+          <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>
     </main>
