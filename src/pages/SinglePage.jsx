@@ -1,7 +1,13 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
 function SinglePage() {
-  return <div>SinglePage</div>;
+  const { id } = useParams();
+  return (
+    <section>
+      <h1>Our Single movie{id}</h1>
+    </section>
+  );
 }
 
 export default SinglePage;
