@@ -4,12 +4,8 @@ import useGlobalContext from "../hooks/useGlobalContext";
 
 function Home() {
   // const data = useContext(MovieContext);
-  const data = useGlobalContext();
-  return (
-    <>
-      <h1>{data}</h1>
-    </>
-  );
+
+  return <></>;
 }
 
 export default Home;

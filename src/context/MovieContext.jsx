@@ -4,13 +4,25 @@ const API_URL = `https://omdbapi.com/?apikey=47846924&s=titanic`;
 
 export const MovieContext = createContext();
 function MovieProvider({ children }) {
-  const [item, setitems] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [movie, setMovie] = useState([]);
+  const [error, setError] = useState({ show: false, message: "" });
+
   const getMovies = async () => {
     try {
       const response = await fetch(API_URL);
       const data = await response.json();
-      setitems(data);
+      setMovie(data);
       console.log(data);
+      if (data.Response === "True") {
+        setIsLoading(false);
+        setMovie(data.Search);
+      } else {
+        setError({
+          show: true,
+          message: data.message,
+        });
+      }
     } catch (error) {
       console.log(error);
     }
@@ -20,7 +32,7 @@ function MovieProvider({ children }) {
   }, []);
   return (
     <>
-      <MovieContext.Provider value={"Shubhank" + "Sharma"}>
+      <MovieContext.Provider value={{ isLoading, error, movie }}>
         {children}
       </MovieContext.Provider>
     </>
