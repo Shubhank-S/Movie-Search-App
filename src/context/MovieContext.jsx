@@ -13,7 +13,7 @@ function MovieProvider({ children }) {
       const response = await fetch(API_URL);
       const data = await response.json();
       setMovie(data);
-      console.log(data);
+      // console.log(data);
       if (data.Response === "True") {
         setIsLoading(false);
         setMovie(data.Search);
@@ -32,7 +32,7 @@ function MovieProvider({ children }) {
   }, []);
   return (
     <>
-      <MovieContext.Provider value={{ isLoading, error, movie }}>
+      <MovieContext.Provider value={{ movie, isLoading, error }}>
         {children}
       </MovieContext.Provider>
     </>
