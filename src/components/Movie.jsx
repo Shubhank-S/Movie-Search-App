@@ -1,17 +1,21 @@
 import React from "react";
 import useGlobalContext from "../hooks/useGlobalContext";
+import { NavLink } from "react-router-dom";
+import Card from "./Card";
 
 function Movie() {
   const { movie } = useGlobalContext();
-  console.log(movie);
+  //   console.log(movie);
   return (
-    <section>
-      <div>
+    <section className="movie_page">
+      h
+      <div className="movie_grid">
         {movie.map((movies) => {
+          const { Title, Type, Year, imdbID } = movies;
           return (
-            <div>
-              <h1>{movies.Title}</h1>
-            </div>
+            <NavLink to={`/movie/${imdbID}`}>
+              <Card />
+            </NavLink>
           );
         })}
       </div>

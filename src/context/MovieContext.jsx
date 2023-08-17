@@ -13,7 +13,7 @@ function MovieProvider({ children }) {
       const response = await fetch(API_URL);
       const data = await response.json();
       setMovie(data);
-      // console.log(data);
+      console.log(data);
       if (data.Response === "True") {
         setIsLoading(false);
         setMovie(data.Search);
